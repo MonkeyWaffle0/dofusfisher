@@ -28,6 +28,7 @@ def fish(map):
             sleep(0.5)
             pyautogui.click(point[0] + offset, point[1] + offset)
             sleep(23)
+            pyautogui.press('enter')
         pyautogui.click(exit[1])
         sleep(5)
         id += 1
