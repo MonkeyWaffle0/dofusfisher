@@ -4,16 +4,18 @@ from time import sleep
 import pyautogui
 
 
-offset = 50
+offset = 50  # Offset (in pixel) so the mouse can click on the action button as well
 
 
 def load_map():
+    """Load the map."""
     with open("map.pickle", "rb") as file:
         map = pickle.load(file)
     return map
 
 
 def fish(map):
+    """FISHING TIME"""
     id = 1
     while True:
         try:

@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7128ef9f-962b-4c3c-b299-8ad5b84f3339" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/fisherbot.py" afterDir="false" />
-    </list>
+    <list default="true" id="7128ef9f-962b-4c3c-b299-8ad5b84f3339" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,8 +28,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fisherbot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+            <state relative-caret-position="570">
+              <caret line="30" column="36" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -189,9 +187,9 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4" weight="0.24973656" />
-      <window_info id="Favorites" order="1" sideWeight="0.6" side_tool="true" visible="true" weight="0.24973656" />
-      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4" visible="true" weight="0.24973656" />
+      <window_info id="Favorites" order="1" sideWeight="0.6" side_tool="true" weight="0.24973656" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.24973656" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Statistic" />
       <window_info anchor="bottom" id="Python Console" weight="0.32936078" />
@@ -249,8 +247,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fisherbot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+        <state relative-caret-position="570">
+          <caret line="30" column="36" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
