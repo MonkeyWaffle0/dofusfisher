@@ -9,7 +9,7 @@ offset = 50  # Offset (in pixel) so the mouse can click on the action button as 
 
 def load_map():
     """Load the map."""
-    name = input("How do you want to call your map ?\n")
+    name = input("Name of the map you want to load :\n")
     with open(name + ".pickle", "rb") as file:
         map = pickle.load(file)
     return map
