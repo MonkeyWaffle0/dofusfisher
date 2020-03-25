@@ -14,18 +14,32 @@ def get_pos():
 
 class Point():
     def __init__(self, map, map_index, point_type, id, pos, mainWindow):
-        self.map = map.map
+        self.map = map
         self.index = map_index
         self.pos = pos
         self.type = point_type
         self.id = id
         self.mainWindow = mainWindow
 
-        self.button = Button(mainWindow.frame, text=pos, command=lambda: map.new_point(point_type))
+        self.button = Button(mainWindow.frame, text=pos, command=self.clicked)
         if point_type == "point":
             self.button.grid(row=id + 3, column=map_index * 2)
         elif point_type == "exit":
             self.button.grid(row=id + 3, column=1 + (map_index * 2))
+
+        self.pressed = False
+
+    def clicked(self):
+        self.pressed = True
+        self.mainWindow.master.bind('<d>', self.on_key)
+
+    def on_key(self, event=None, *args):
+        if self.pressed:
+            self.pos = get_pos()
+            self.map.change_point(self.type, self.id, self.pos)
+            self.button.configure(text=self.pos)
+            print(f"updated the point at pos {self.pos}")
+            self.pressed = False
 
 
 class Map():
@@ -56,6 +70,9 @@ class Map():
     def add(self, point_type, id):
         pos = get_pos()
         point = Point(self, self.index, point_type, id, pos, self.mainWindow)
+        self.map[point_type][id] = pos
+
+    def change_point(self, point_type, id, pos):
         self.map[point_type][id] = pos
 
     def new_point(self, point_type):

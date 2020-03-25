@@ -17,12 +17,12 @@ def load_map():
 
 def fish(map):
     """FISHING TIME"""
-    id = 1
+    id = 0
     while True:
         try:
             current = map[id]
         except KeyError:
-            id = 1
+            id = 0
             current = map[id]
         points = current["point"]
         exit = current["exit"]
@@ -32,10 +32,12 @@ def fish(map):
             pyautogui.click(point[0] + offset, point[1] + offset)
             sleep(23)
             pyautogui.press('enter')
-        pyautogui.click(exit[1])
-        sleep(8)
-        id += 1
-
+        try:
+            pyautogui.click(exit[0])
+            sleep(8)
+            id += 1
+        except KeyError:
+            print("No exit in this map.\n")
 
 map = load_map()
 sleep(5)
