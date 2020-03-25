@@ -168,11 +168,6 @@ class MainWindow():
         self.load_button = Button(self.frame, text="Load", command=self.load)
         self.load_button.grid(row=0, column=2)
 
-        # Setting the minimum size of each column to 150.
-        """columnCount, rowCount = self.frame.grid_size()
-        for column in range(columnCount):
-            self.frame.grid_columnconfigure(column, minsize=150)"""
-
     def new_map(self):
         map = Map(self.id, self)
         self.global_map.add(self.id, map)
@@ -189,9 +184,12 @@ class MainWindow():
         self.save_button["state"] = "normal"
 
         dic = self.global_map.to_dict()
-        # Add every task to self.save and dump it to a file.
-        with open(self.entryValue() + ".pickle", "wb") as outfile:
-            pickle.dump(dic, outfile)
+        try:
+            # Add every task to self.save and dump it to a file.
+            with open(self.entryValue() + ".pickle", "wb") as outfile:
+                pickle.dump(dic, outfile)
+        except AttributeError:
+            pass
 
     def load(self):
         """Load the file in the load entry field."""
@@ -212,8 +210,10 @@ class MainWindow():
         except FileNotFoundError:
             # Displays message error if the file does not exist.
             self.noFile = Label(self.frame, text="No such file found !", fg="red", font="arial 10")
-            self.noFile.grid(row=1, column=3, padx=1, pady=1)
+            self.noFile.grid(row=0, column=3, padx=1, pady=1)
             self.noFile.after(2500, self.noFile.destroy)
+        except AttributeError:
+            pass
 
     def entryValue(self):
         """Get the value in the entry field."""

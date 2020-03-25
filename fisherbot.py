@@ -4,7 +4,9 @@ from time import sleep
 import pyautogui
 
 
-offset = 50  # Offset (in pixel) so the mouse can click on the action button as well
+OFFSET = 50  # Offset (in pixel) so the mouse can click on the action button as well
+TIME_BETWEEN_HARVEST = 23
+TIME_EXIT = 8
 
 
 def load_map():
@@ -28,16 +30,19 @@ def fish(map):
         exit = current["exit"]
         for n, point in points.items():
             pyautogui.click(point[0], point[1])
+            print(f"Clicked point {point[0], point[1]} in map {id}.")
             sleep(0.5)
-            pyautogui.click(point[0] + offset, point[1] + offset)
-            sleep(23)
+            pyautogui.click(point[0] + OFFSET, point[1] + OFFSET)
+            sleep(TIME_BETWEEN_HARVEST)
             pyautogui.press('enter')
         try:
             pyautogui.click(exit[0])
-            sleep(8)
+            print(f"Clicked exit {n} in map {id}.")
+            sleep(TIME_EXIT)
             id += 1
         except KeyError:
             print("No exit in this map.\n")
+
 
 map = load_map()
 sleep(5)
