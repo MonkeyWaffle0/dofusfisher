@@ -33,10 +33,10 @@ def fish(map):
             sleep(23)
             pyautogui.press('enter')
         pyautogui.click(exit[1])
-        sleep(7)
+        sleep(8)
         id += 1
 
 
-sleep(5)
 map = load_map()
+sleep(5)
 fish(map)
