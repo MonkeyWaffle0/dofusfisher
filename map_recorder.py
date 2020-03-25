@@ -5,11 +5,16 @@ import pickle
 import os.path
 
 
-def check_map():
-    """Check if the map file already exists, create it if it doenst"""
-    if not os.path.isfile("map.pickle"):
+def get_name():
+    name = input("How do you want to call your map ?\n")
+    return name
+
+
+def check_map(name):
+    """Check if the map file already exists, create it if it doesnt"""
+    if not os.path.isfile(name + ".pickle"):
         map = {}
-        with open("map.pickle", "wb") as file:
+        with open(name + ".pickle", "wb") as file:
             pickle.dump(map, file)
 
 
@@ -34,21 +39,20 @@ def wait_for_click():
 
 def save_map(id, map):
     """Save the map in the pickle file."""
-    with open("map.pickle", "rb") as file:
+    with open(name + ".pickle", "rb") as file:
         data = pickle.load(file)
-    with open("map.pickle", "wb") as file:
+    with open(name + ".pickle", "wb") as file:
         data[id] = map
         pickle.dump(data, file)
 
 
 def record():
     """Runs a loop, ask the player what he wants to save, then wait for a mouse click to save the pos."""
-    # Ask the map ID to the user (first is 1, then 2...) so the bot can navigate through the maps
-    id = input("What is the map's ID ?\n")
     map = {
         "exit": {},
         "point": {}
            }
+    id = 1
     a = ""  # user input
     i = 1   # index of the point of interest
     e = 1   # index of the exit point
@@ -64,13 +68,21 @@ def record():
             map["exit"][e] = get_pos()
             print(f"Saved exit point at pos {get_pos()}\n\n")
             e += 1
+        elif a == "n":
+            print(f"Map {id} saved. Now recording map {id+1}\n\n")
+            save_map(id, map)
+            map = {
+                "exit": {},
+                "point": {}
+            }
+            i = 1
+            e = 1
+            id += 1
         elif a != "q":
             print("Wrong input\n")
             continue
 
-    return id, map
 
-
-check_map()
-id, map = record()
-save_map(id, map)
+name = get_name()
+check_map(name)
+record()
