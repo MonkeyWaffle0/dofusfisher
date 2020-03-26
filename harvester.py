@@ -4,9 +4,9 @@ from time import sleep
 import pyautogui
 
 
-OFFSET = 40  # Offset (in pixel) so the mouse can click on the action button as well
-TIME_BETWEEN_HARVEST = 5
-TIME_EXIT = 5
+OFFSET = 50  # Offset (in pixel) so the mouse can click on the action button as well
+TIME_BETWEEN_HARVEST = 22
+TIME_EXIT = 8
 
 
 def get_pos():
@@ -19,7 +19,7 @@ def get_pos():
 def ghost_click(pos):
     previous_pos = get_pos()
     pyautogui.click(pos)
-    pyautogui.click(previous_pos)
+    pyautogui.moveTo(previous_pos)
 
 
 def save(global_map, id, n):
@@ -43,11 +43,6 @@ class Harvester:
             self.global_map = data["global_map"]
             self.id = data["id"]
             self.p = data["p"]
-
-    def ghost_click(self, pos):
-        previous_pos = get_pos()
-        pyautogui.click(pos)
-        pyautogui.moveTo(previous_pos)
 
     def get_current(self):
         try:
