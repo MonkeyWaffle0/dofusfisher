@@ -60,15 +60,15 @@ class Harvester:
         return points, exit
 
     def click(self, point):
-        # ghost_click(point)
+        ghost_click(point)
         print(f"Clicked point {point} in map {self.id}.")
         sleep(0.5)
-        # ghost_click((point[0] + OFFSET, point[1] + OFFSET))
+        ghost_click((point[0] + OFFSET, point[1] + OFFSET))
         sleep(TIME_BETWEEN_HARVEST)
-        # pyautogui.press('enter')
+        pyautogui.press('enter')
 
     def exit(self, pos):
-        # ghost_click(pos)
+        ghost_click(pos)
         print(f"Clicked exit in map {self.id}.")
         sleep(TIME_EXIT)
         self.id += 1
