@@ -1,7 +1,6 @@
 from tkinter import *
 import pickle
 
-import win32api
 import pyautogui
 
 
@@ -116,16 +115,20 @@ class GlobalMap():
         self.global_map[index] = map
 
     def to_dict(self):
-        dic = {}
+        dic = {
+            "global_map": {},
+            "id": 0,
+            "p": 0
+        }
         for i, map in self.global_map.items():
-            dic[i] = {
+            dic["global_map"][i] = {
                 "point": {},
                 "exit": {}
             }
             for j, point in map.map["point"].items():
-                dic[i]["point"][j] = point
+                dic["global_map"][i]["point"][j] = point
             for k, exit in map.map["exit"].items():
-                dic[i]["exit"][k] = exit
+                dic["global_map"][i]["exit"][k] = exit
         return dic
 
 
